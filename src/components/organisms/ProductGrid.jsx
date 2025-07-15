@@ -79,18 +79,15 @@ const ProductGrid = ({ searchQuery, selectedCategory }) => {
       <div className="flex flex-col lg:flex-row gap-8">
         {/* Sidebar Filters */}
         <div className="lg:w-64 flex-shrink-0">
-          <CategoryFilter
+<CategoryFilter
             categories={categories}
             selectedCategory={selectedCategory}
             onCategoryChange={(category) => {
-              const url = new URL(window.location);
-              if (category) {
-                url.searchParams.set("category", category);
-              } else {
-                url.searchParams.delete("category");
+              // This will be handled by the parent component (HomePage)
+              // that manages the selectedCategory state
+              if (window.onCategoryChange) {
+                window.onCategoryChange(category);
               }
-              window.history.pushState({}, "", url);
-              window.location.reload();
             }}
           />
         </div>

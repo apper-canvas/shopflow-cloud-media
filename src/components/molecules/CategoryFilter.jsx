@@ -15,22 +15,22 @@ const CategoryFilter = ({ categories, selectedCategory, onCategoryChange }) => {
       </h3>
       
       <div className="space-y-2">
-        <Button
+<Button
           variant={!selectedCategory ? "primary" : "ghost"}
           size="sm"
-          onClick={() => onCategoryChange("")}
+          onClick={() => onCategoryChange(null)}
           className="w-full justify-start"
         >
           <ApperIcon name="Grid3X3" size={16} className="mr-2" />
           All Products
         </Button>
         
-        {categories.map((category) => (
+{categories.map((category) => (
           <Button
             key={category.name}
-            variant={selectedCategory === category.slug ? "primary" : "ghost"}
+            variant={selectedCategory === category.name ? "primary" : "ghost"}
             size="sm"
-            onClick={() => onCategoryChange(category.slug)}
+            onClick={() => onCategoryChange(category.name)}
             className="w-full justify-between"
           >
             <span className="flex items-center">
