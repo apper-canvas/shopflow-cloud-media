@@ -1,0 +1,60 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import 'react-toastify/dist/ReactToastify.css';
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-gray-50 text-gray-900 font-body;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-gradient-to-r from-primary-500 to-primary-600 text-white px-6 py-3 rounded-lg font-medium transition-all duration-200 hover:from-primary-600 hover:to-primary-700 hover:shadow-lg hover:-translate-y-0.5 active:scale-98;
+  }
+  
+  .btn-secondary {
+    @apply bg-white text-primary-600 border border-primary-200 px-6 py-3 rounded-lg font-medium transition-all duration-200 hover:bg-primary-50 hover:border-primary-300 active:scale-98;
+  }
+  
+  .card {
+    @apply bg-white rounded-lg shadow-card transition-all duration-200 hover:shadow-card-hover hover:-translate-y-1;
+  }
+  
+  .input-field {
+    @apply w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-colors duration-200;
+  }
+}
+
+/* Toast Customization */
+.Toastify__toast-container {
+  @apply z-[9999];
+}
+
+.Toastify__toast {
+  @apply rounded-lg shadow-lg;
+  min-height: 64px;
+}
+
+.Toastify__toast--success {
+  @apply bg-gradient-to-r from-green-500 to-green-600;
+}
+
+.Toastify__toast--error {
+  @apply bg-gradient-to-r from-red-500 to-red-600;
+}
+
+.Toastify__toast--warning {
+  @apply bg-gradient-to-r from-amber-500 to-amber-600;
+}
+
+.Toastify__toast--info {
+  @apply bg-gradient-to-r from-blue-500 to-blue-600;
+}

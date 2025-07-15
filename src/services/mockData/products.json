@@ -1,0 +1,155 @@
+[
+  {
+    "Id": 1,
+    "name": "Wireless Bluetooth Headphones",
+    "price": 199.99,
+    "images": [
+      "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=500",
+      "https://images.unsplash.com/photo-1484704849700-f032a568e944?w=500"
+    ],
+    "category": "Electronics",
+    "description": "Premium wireless headphones with noise cancellation, 30-hour battery life, and superior sound quality. Perfect for music lovers and professionals.",
+    "variants": [
+      { "size": "One Size", "color": "Black", "stock": 15 },
+      { "size": "One Size", "color": "White", "stock": 8 },
+      { "size": "One Size", "color": "Blue", "stock": 12 }
+    ],
+    "inStock": true,
+    "featured": true
+  },
+  {
+    "Id": 2,
+    "name": "Smart Fitness Watch",
+    "price": 299.99,
+    "images": [
+      "https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=500",
+      "https://images.unsplash.com/photo-1434493789847-2f02dc6ca35d?w=500"
+    ],
+    "category": "Electronics",
+    "description": "Advanced fitness tracker with heart rate monitoring, GPS, and 7-day battery life. Track your workouts and health metrics with precision.",
+    "variants": [
+      { "size": "Small", "color": "Black", "stock": 20 },
+      { "size": "Medium", "color": "Black", "stock": 25 },
+      { "size": "Large", "color": "Black", "stock": 18 },
+      { "size": "Small", "color": "Silver", "stock": 15 }
+    ],
+    "inStock": true,
+    "featured": false
+  },
+  {
+    "Id": 3,
+    "name": "Organic Cotton T-Shirt",
+    "price": 29.99,
+    "images": [
+      "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=500",
+      "https://images.unsplash.com/photo-1576566588028-4147f3842f27?w=500"
+    ],
+    "category": "Clothing",
+    "description": "Soft, breathable organic cotton t-shirt. Sustainably made with eco-friendly materials. Perfect for everyday wear with a comfortable relaxed fit.",
+    "variants": [
+      { "size": "XS", "color": "White", "stock": 10 },
+      { "size": "S", "color": "White", "stock": 15 },
+      { "size": "M", "color": "White", "stock": 20 },
+      { "size": "L", "color": "White", "stock": 18 },
+      { "size": "XL", "color": "White", "stock": 12 },
+      { "size": "S", "color": "Black", "stock": 14 },
+      { "size": "M", "color": "Black", "stock": 22 },
+      { "size": "L", "color": "Black", "stock": 16 }
+    ],
+    "inStock": true,
+    "featured": true
+  },
+  {
+    "Id": 4,
+    "name": "Stainless Steel Water Bottle",
+    "price": 34.99,
+    "images": [
+      "https://images.unsplash.com/photo-1602143407151-7111542de6e8?w=500",
+      "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=500"
+    ],
+    "category": "Home & Kitchen",
+    "description": "Insulated stainless steel water bottle that keeps drinks cold for 24 hours or hot for 12 hours. BPA-free with leak-proof design.",
+    "variants": [
+      { "size": "16oz", "color": "Silver", "stock": 25 },
+      { "size": "20oz", "color": "Silver", "stock": 30 },
+      { "size": "24oz", "color": "Silver", "stock": 20 },
+      { "size": "16oz", "color": "Black", "stock": 22 },
+      { "size": "20oz", "color": "Black", "stock": 28 },
+      { "size": "16oz", "color": "Blue", "stock": 18 }
+    ],
+    "inStock": true,
+    "featured": false
+  },
+  {
+    "Id": 5,
+    "name": "Leather Crossbody Bag",
+    "price": 89.99,
+    "images": [
+      "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=500",
+      "https://images.unsplash.com/photo-1548036328-c9fa89d128fa?w=500"
+    ],
+    "category": "Accessories",
+    "description": "Genuine leather crossbody bag with adjustable strap and multiple compartments. Perfect for daily use with a timeless design.",
+    "variants": [
+      { "size": "One Size", "color": "Brown", "stock": 12 },
+      { "size": "One Size", "color": "Black", "stock": 15 },
+      { "size": "One Size", "color": "Tan", "stock": 8 }
+    ],
+    "inStock": true,
+    "featured": true
+  },
+  {
+    "Id": 6,
+    "name": "Wireless Phone Charger",
+    "price": 39.99,
+    "images": [
+      "https://images.unsplash.com/photo-1586953208448-b95a79798f07?w=500",
+      "https://images.unsplash.com/photo-1609081219090-a6d81d3085bf?w=500"
+    ],
+    "category": "Electronics",
+    "description": "Fast wireless charging pad compatible with all Qi-enabled devices. Sleek design with LED indicator and overcharge protection.",
+    "variants": [
+      { "size": "One Size", "color": "White", "stock": 30 },
+      { "size": "One Size", "color": "Black", "stock": 25 }
+    ],
+    "inStock": true,
+    "featured": false
+  },
+  {
+    "Id": 7,
+    "name": "Premium Coffee Beans",
+    "price": 24.99,
+    "images": [
+      "https://images.unsplash.com/photo-1559056199-641a0ac8b55e?w=500",
+      "https://images.unsplash.com/photo-1447933601403-0c6688de566e?w=500"
+    ],
+    "category": "Food & Beverage",
+    "description": "Single-origin premium coffee beans, medium roast with notes of chocolate and caramel. Ethically sourced and freshly roasted.",
+    "variants": [
+      { "size": "12oz", "color": "Brown", "stock": 40 },
+      { "size": "2lb", "color": "Brown", "stock": 20 }
+    ],
+    "inStock": true,
+    "featured": false
+  },
+  {
+    "Id": 8,
+    "name": "Yoga Mat",
+    "price": 49.99,
+    "images": [
+      "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=500",
+      "https://images.unsplash.com/photo-1506629905607-e9e8bdb140d4?w=500"
+    ],
+    "category": "Sports & Outdoors",
+    "description": "Non-slip yoga mat with superior cushioning and alignment guides. Made from eco-friendly materials, perfect for all types of yoga practice.",
+    "variants": [
+      { "size": "Standard", "color": "Purple", "stock": 15 },
+      { "size": "Standard", "color": "Blue", "stock": 18 },
+      { "size": "Standard", "color": "Pink", "stock": 12 },
+      { "size": "Thick", "color": "Purple", "stock": 10 },
+      { "size": "Thick", "color": "Blue", "stock": 8 }
+    ],
+    "inStock": true,
+    "featured": true
+  }
+]
