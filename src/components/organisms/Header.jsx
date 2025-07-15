@@ -1,15 +1,19 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
+import { useSelector } from "react-redux";
 import ApperIcon from "@/components/ApperIcon";
 import SearchBar from "@/components/molecules/SearchBar";
 import Button from "@/components/atoms/Button";
 import cartService from "@/services/api/cartService";
+import { AuthContext } from "@/App";
 
 const Header = () => {
   const [cartItemCount, setCartItemCount] = useState(0);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const navigate = useNavigate();
+  const { logout } = useContext(AuthContext);
+  const { user } = useSelector((state) => state.user);
 
   useEffect(() => {
     loadCartCount();
@@ -76,7 +80,7 @@ const Header = () => {
             <SearchBar onSearch={handleSearch} />
           </div>
 
-          {/* Cart and Mobile Menu */}
+{/* Cart, User, and Mobile Menu */}
           <div className="flex items-center space-x-4">
             <Link
               to="/cart"
@@ -93,6 +97,22 @@ const Header = () => {
                 </motion.span>
               )}
             </Link>
+
+            {/* User Menu */}
+            <div className="hidden md:flex items-center space-x-3">
+              <span className="text-sm text-gray-600">
+                Hello, {user?.firstName || user?.name || 'User'}
+              </span>
+              <Button
+                variant="ghost"
+                size="sm"
+                onClick={logout}
+                className="text-gray-700 hover:text-primary-600"
+              >
+                <ApperIcon name="LogOut" size={16} className="mr-1" />
+                Logout
+              </Button>
+            </div>
 
             {/* Mobile Menu Button */}
             <Button
@@ -121,7 +141,7 @@ const Header = () => {
             exit={{ opacity: 0, height: 0 }}
             className="md:hidden bg-white border-t border-gray-200"
           >
-            <div className="px-4 py-2 space-y-1">
+<div className="px-4 py-2 space-y-1">
               {navigation.map((item) => (
                 <Link
                   key={item.name}
@@ -132,6 +152,23 @@ const Header = () => {
                   {item.name}
                 </Link>
               ))}
+              <div className="border-t pt-2 mt-2">
+                <span className="block px-3 py-2 text-sm text-gray-600">
+                  Hello, {user?.firstName || user?.name || 'User'}
+                </span>
+                <Button
+                  variant="ghost"
+                  size="sm"
+                  onClick={() => {
+                    logout();
+                    setIsMobileMenuOpen(false);
+                  }}
+                  className="w-full justify-start px-3 py-2 text-gray-700 hover:text-primary-600 hover:bg-gray-50 rounded-lg"
+                >
+                  <ApperIcon name="LogOut" size={16} className="mr-2" />
+                  Logout
+                </Button>
+              </div>
             </div>
           </motion.div>
         )}

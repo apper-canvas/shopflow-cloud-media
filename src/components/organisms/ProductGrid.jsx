@@ -97,9 +97,9 @@ const ProductGrid = ({ searchQuery, selectedCategory }) => {
           {/* Toolbar */}
           <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-6 space-y-4 sm:space-y-0">
             <div className="flex items-center space-x-4">
-              <h2 className="text-2xl font-bold text-gray-900">
+<h2 className="text-2xl font-bold text-gray-900">
                 {searchQuery ? `Search results for "${searchQuery}"` : 
-                 selectedCategory ? `${selectedCategory.replace("-", " ")} Products` : 
+                 selectedCategory ? `${selectedCategory.replace(/[-_]/g, " ")} Products` : 
                  "All Products"}
               </h2>
               <span className="text-sm text-gray-600">

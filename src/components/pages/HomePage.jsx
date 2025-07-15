@@ -1,13 +1,14 @@
-import { useState, useEffect } from "react";
-import { useSearchParams } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { useSearchParams, useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
-import ProductGrid from "@/components/organisms/ProductGrid";
 import ApperIcon from "@/components/ApperIcon";
+import ProductGrid from "@/components/organisms/ProductGrid";
 import Button from "@/components/atoms/Button";
 import productService from "@/services/api/productService";
 
 const HomePage = () => {
   const [searchParams] = useSearchParams();
+  const navigate = useNavigate();
   const [featuredProducts, setFeaturedProducts] = useState([]);
   const [loading, setLoading] = useState(true);
   
@@ -231,7 +232,7 @@ const HomePage = () => {
                 icon: "Coffee"
               }
             ].map((category, index) => (
-              <motion.a
+<motion.a
                 key={category.slug}
                 href={`/?category=${category.slug}`}
                 initial={{ opacity: 0, y: 30 }}
@@ -279,13 +280,13 @@ const HomePage = () => {
             <p className="text-xl text-gray-100">
               Join thousands of satisfied customers and discover amazing deals today.
             </p>
-            <Button
+<Button
               variant="accent"
               size="lg"
-              onClick={() => window.location.href = "/products"}
+              onClick={() => navigate("/products")}
               className="px-8 py-4"
             >
-              <ApperIcon name="ArrowRight" size={20} className="mr-2" />
+              <ApperIcon name="ShoppingCart" size={20} className="mr-2" />
               Shop Now
             </Button>
           </motion.div>

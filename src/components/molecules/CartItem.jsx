@@ -51,8 +51,8 @@ const CartItem = ({ item, onUpdate }) => {
       />
       
       <div className="flex-1 min-w-0">
-        <h4 className="font-medium text-gray-900 truncate">
-          {item.name}
+<h4 className="font-medium text-gray-900 truncate">
+          {item.Name || item.name}
         </h4>
         
         {item.variant && (

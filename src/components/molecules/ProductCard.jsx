@@ -18,12 +18,12 @@ const ProductCard = ({ product, onCartUpdate }) => {
     setIsAddingToCart(true);
     try {
       const cartItem = {
-        productId: product.Id,
+productId: product.Id,
         quantity: 1,
-        variant: product.variants[0],
+        variant: product.variants && product.variants.length > 0 ? product.variants[0] : null,
         price: product.price,
-        name: product.name,
-        image: product.images[0]
+        name: product.Name || product.name,
+        image: Array.isArray(product.images) ? product.images[0] : product.images
       };
       
       await cartService.addToCart(cartItem);
@@ -48,9 +48,9 @@ const ProductCard = ({ product, onCartUpdate }) => {
     >
       <Link to={`/product/${product.Id}`} className="block">
         <div className="relative mb-4 overflow-hidden rounded-lg bg-gray-100">
-          <img
-            src={product.images[0]}
-            alt={product.name}
+<img
+            src={Array.isArray(product.images) ? product.images[0] : product.images}
+            alt={product.Name || product.name}
             className="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-110"
           />
           
@@ -71,8 +71,8 @@ const ProductCard = ({ product, onCartUpdate }) => {
         </div>
         
         <div className="space-y-2">
-          <h3 className="font-semibold text-gray-900 group-hover:text-primary-600 transition-colors line-clamp-2">
-            {product.name}
+<h3 className="font-semibold text-gray-900 group-hover:text-primary-600 transition-colors line-clamp-2">
+            {product.Name || product.name}
           </h3>
           
           <p className="text-sm text-gray-600 line-clamp-2">

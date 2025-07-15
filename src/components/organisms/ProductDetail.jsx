@@ -29,9 +29,11 @@ const ProductDetail = () => {
     setError(null);
     
     try {
-      const productData = await productService.getById(id);
+const productData = await productService.getById(id);
       setProduct(productData);
-      setSelectedVariant(productData.variants[0]);
+      if (productData.variants && productData.variants.length > 0) {
+        setSelectedVariant(productData.variants[0]);
+      }
     } catch (err) {
       setError(err.message);
     }
@@ -48,12 +50,12 @@ const ProductDetail = () => {
     setIsAddingToCart(true);
     try {
       const cartItem = {
-        productId: product.Id,
+productId: product.Id,
         quantity,
         variant: selectedVariant,
         price: product.price,
-        name: product.name,
-        image: product.images[0]
+        name: product.Name || product.name,
+        image: Array.isArray(product.images) ? product.images[0] : product.images
       };
       
       await cartService.addToCart(cartItem);
@@ -76,10 +78,10 @@ const ProductDetail = () => {
     return <Error message="Product not found" />;
   }
 
-  const availableSizes = [...new Set(product.variants.map(v => v.size))];
-  const availableColors = [...new Set(product.variants
+const availableSizes = product.variants ? [...new Set(product.variants.map(v => v.size))] : [];
+  const availableColors = product.variants ? [...new Set(product.variants
     .filter(v => !selectedVariant?.size || v.size === selectedVariant.size)
-    .map(v => v.color))];
+    .map(v => v.color))] : [];
 
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
@@ -95,9 +97,9 @@ const ProductDetail = () => {
             whileHover={{ scale: 1.05 }}
             transition={{ duration: 0.3 }}
           >
-            <img
-              src={product.images[selectedImage]}
-              alt={product.name}
+<img
+              src={Array.isArray(product.images) ? product.images[selectedImage] : product.images}
+              alt={product.Name || product.name}
               className="w-full h-full object-cover"
             />
             
@@ -146,8 +148,8 @@ const ProductDetail = () => {
             <Badge variant="default" className="mb-2">
               {product.category}
             </Badge>
-            <h1 className="text-3xl font-bold text-gray-900 mb-2">
-              {product.name}
+<h1 className="text-3xl font-bold text-gray-900 mb-2">
+              {product.Name || product.name}
             </h1>
             <p className="text-3xl font-bold text-primary-600">
               ${product.price}
@@ -269,7 +271,7 @@ const ProductDetail = () => {
             size="lg"
             onClick={handleAddToCart}
             isLoading={isAddingToCart}
-            disabled={!product.inStock || !selectedVariant || selectedVariant.stock === 0}
+disabled={!product.inStock || !selectedVariant || (selectedVariant && selectedVariant.stock === 0)}
             className="w-full"
           >
             <ApperIcon name="ShoppingCart" size={20} className="mr-2" />

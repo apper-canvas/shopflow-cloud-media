@@ -1,12 +1,15 @@
-import { useState, useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { motion, AnimatePresence } from "framer-motion";
-import CartItem from "@/components/molecules/CartItem";
-import Button from "@/components/atoms/Button";
-import Loading from "@/components/ui/Loading";
-import Error from "@/components/ui/Error";
-import Empty from "@/components/ui/Empty";
+import { AnimatePresence, motion } from "framer-motion";
 import ApperIcon from "@/components/ApperIcon";
+import Checkout from "@/components/organisms/Checkout";
+import Button from "@/components/atoms/Button";
+import Empty from "@/components/ui/Empty";
+import Error from "@/components/ui/Error";
+import Loading from "@/components/ui/Loading";
+import CartItem from "@/components/molecules/CartItem";
+import categoriesData from "@/services/mockData/categories.json";
+import productsData from "@/services/mockData/products.json";
 import cartService from "@/services/api/cartService";
 
 const Cart = () => {
@@ -41,7 +44,7 @@ const Cart = () => {
     loadCart();
   };
 
-  if (loading) {
+if (loading) {
     return (
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <Loading type="cart" />
@@ -52,7 +55,10 @@ const Cart = () => {
   if (error) {
     return (
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        <Error message={error} onRetry={loadCart} />
+        <Error
+          message={error}
+          onRetry={loadCart}
+        />
       </div>
     );
   }

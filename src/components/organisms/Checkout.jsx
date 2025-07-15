@@ -47,7 +47,7 @@ const Checkout = () => {
         cartService.getCartTotal()
       ]);
       
-      if (cartData.length === 0) {
+if (cartData.length === 0) {
         navigate("/cart");
         return;
       }
